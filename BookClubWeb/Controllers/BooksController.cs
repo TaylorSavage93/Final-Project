@@ -33,7 +33,7 @@ namespace BookClubWeb.Controllers
             return View(book);
         }
 
-        public IActionResult UpdateBooksToDatatbase(Books books)
+        public IActionResult UpdateBooksToDatabase(Books books)
         {
             repo.UpdateBook(books);
             return RedirectToAction("ViewBook", new { id = books.Id });
