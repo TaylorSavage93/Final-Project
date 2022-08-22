@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BookClubWeb.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookClubWeb.Controllers
 {
@@ -15,6 +16,27 @@ namespace BookClubWeb.Controllers
         {
             var books = repo.GetAllBooks();
             return View(books);
+        }
+
+        public IActionResult ViewBook(int id)
+        {
+            var book = repo.GetBook(id);
+            return View(book);
+        }
+        public IActionResult UpdateBook(int id)
+        {
+            Books book = repo.GetBook(id);
+            if (book == null)
+            {
+                return View("BookNotFound");
+            }
+            return View(book);
+        }
+
+        public IActionResult UpdateBooksToDatatbase(Books books)
+        {
+            repo.UpdateBook(books);
+            return RedirectToAction("ViewBook", new { id = books.Id });
         }
     }
 }

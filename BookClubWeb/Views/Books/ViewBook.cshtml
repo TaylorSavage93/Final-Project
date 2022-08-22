@@ -1,0 +1,22 @@
+﻿@model Books
+
+<h3>@Model.Title Information</h3>
+
+<table class="table">
+    <tr>
+       <th>ID</th>
+       <th>Title</th>
+       <th>Author</th>
+       <th>Genre</th>
+    </tr>
+    <tr>
+       <td>@Model.Id</td>
+       <td>@Model.Title</td>
+       <td>@Model.Author</td>
+       <td>@Model.Genre</td>
+    </tr>
+</table>
+
+<div style="display: block">
+    <a href="/Books/UpdateBook/@Model.Id">Update this Book</a>
+</div>
