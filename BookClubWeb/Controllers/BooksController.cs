@@ -38,5 +38,15 @@ namespace BookClubWeb.Controllers
             repo.UpdateBook(books);
             return RedirectToAction("ViewBook", new { id = books.Id });
         }
+        public IActionResult InsertBook()
+        {
+            var books = repo.AssignCategory();
+            return View(books);
+        }
+        public IActionResult InsertBooksToDatabase(Books booksToInsert)
+        {
+            repo.InsertBook(booksToInsert);
+            return RedirectToAction("Books");
+        }
     }
 }
