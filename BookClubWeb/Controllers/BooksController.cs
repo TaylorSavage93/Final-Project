@@ -4,9 +4,17 @@ namespace BookClubWeb.Controllers
 {
     public class BooksController : Controller
     {
-        public IActionResult Index()
+        private readonly IBooksRepository repo;
+
+        public BooksController(IBooksRepository repo)
         {
-            return View();
+            this.repo = repo;
+        }
+
+        public IActionResult Books()
+        {
+            var books = repo.GetAllBooks();
+            return View(books);
         }
     }
 }
