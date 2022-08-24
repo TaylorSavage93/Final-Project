@@ -17,7 +17,7 @@ namespace BookClubWeb
             return _conn.Query<Books>("SELECT * FROM BOOKS;");
         }
 
-        public Books GetBook(int id)
+        public Books GetBook(double id)
         {
             return _conn.QuerySingle<Books>("SELECT * FROM BOOKS WHERE ID = @id", new { id = id });
         }
@@ -43,5 +43,7 @@ namespace BookClubWeb
         {
             _conn.Execute("UPDATE books SET Title = @title, author = @author, Genre = @Genre WHERE Id = @Id", new { title = books.Title, author = books.Author, Genre = books.Genre, books.Id });
         }
+      
+        
     }
 }

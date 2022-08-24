@@ -1,6 +1,14 @@
 ﻿@model IEnumerable<Books>
 
 <h2>Books</h2>
+<form asp-action="Books" method="get">
+    <div class="form-group">
+        <label for="SearchString">Search by partial title:</label>
+        <input type="text" class="form-control" name="SearchString"
+            value="@ViewData["CurrentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-primary" />
+    </div>
+</form>
 
  <div style="display: block">
      <a href="/Books/InsertBook/">Create a New Book</a>
@@ -8,7 +16,7 @@
 
 <table class="table">
     <tr>
-       <th>ID</th>
+       <th>ISBN</th>
        <th>Title</th>
        <th>Author</th>
        <th>Genre</th>

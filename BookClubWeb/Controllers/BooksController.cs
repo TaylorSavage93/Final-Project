@@ -12,18 +12,24 @@ namespace BookClubWeb.Controllers
             this.repo = repo;
         }
 
-        public IActionResult Books()
+        public IActionResult Books(string SearchString)
         {
             var books = repo.GetAllBooks();
+
+            ViewData["CurrentFilter"] = SearchString;
+            books = from b in repo.GetAllBooks() select b;
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                books = books.Where(b => b.Title.Contains(SearchString));
+            }
             return View(books);
         }
-
-        public IActionResult ViewBook(int id)
+        public IActionResult ViewBook(double id)
         {
             var book = repo.GetBook(id);
             return View(book);
         }
-        public IActionResult UpdateBook(int id)
+        public IActionResult UpdateBook(double id)
         {
             Books book = repo.GetBook(id);
             if (book == null)
