@@ -20,6 +20,7 @@
        <th>Title</th>
        <th>Author</th>
        <th>Genre</th>
+       <th>In Stock</th>
     </tr>
 
     @foreach (var books in Model)
@@ -29,6 +30,7 @@
             <td>@books.Title</td>
             <td>@books.Author</td>
             <td>@books.Genre</td>
+            <td>@books.InStock</td>
         </tr>
     }
 </table>

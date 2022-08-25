@@ -49,6 +49,11 @@ namespace BookClubWeb.Controllers
             var books = repo.AssignCategory();
             return View(books);
         }
+        public IActionResult DeleteBook(Books books)
+        {
+            repo.DeleteBook(books);
+            return RedirectToAction("Books");
+        }
         public IActionResult InsertBooksToDatabase(Books booksToInsert)
         {
             repo.InsertBook(booksToInsert);

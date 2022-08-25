@@ -24,8 +24,12 @@ namespace BookClubWeb
 
         public void InsertBook(Books bookstoInsert)
         {
-            _conn.Execute("INSERT INTO books (TITLE, ID, GENRE, AUTHOR, CATEGORYID) VALUES (@title, @id, @genre, @author, @categoryid);", new { Title = bookstoInsert.Title, author = bookstoInsert.Author, genre = bookstoInsert.Genre, id = bookstoInsert.Id, bookstoInsert.CategoryId });
+            _conn.Execute("INSERT INTO books (TITLE, ID, GENRE, AUTHOR, CATEGORYID, DESCRIPTION, INSTOCK) VALUES (@title, @id, @genre, @author, @categoryid, @description, @instock);", new { Title = bookstoInsert.Title, author = bookstoInsert.Author, genre = bookstoInsert.Genre, id = bookstoInsert.Id, bookstoInsert.CategoryId, Description = bookstoInsert.Description, bookstoInsert.InStock });
 
+        }
+        public void DeleteBook(Books books)
+        {
+            _conn.Execute("DELETE FROM BOOKS WHERE ID = @id;", new { id = books.Id });
         }
         public IEnumerable<Category> GetCategories()
         {
