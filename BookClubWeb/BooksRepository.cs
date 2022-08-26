@@ -1,8 +1,8 @@
-﻿using BookClubWeb.Models;
-using Dapper;
+﻿using Dapper;
+using LibraryInventoryWeb.Models;
 using System.Data;
 
-namespace BookClubWeb
+namespace LibraryInventoryWeb
 {
     public class BooksRepository : IBooksRepository
     {
@@ -19,12 +19,12 @@ namespace BookClubWeb
 
         public Books GetBook(double id)
         {
-            return _conn.QuerySingle<Books>("SELECT * FROM BOOKS WHERE ID = @id", new { id = id });
+            return _conn.QuerySingle<Books>("SELECT * FROM BOOKS WHERE ID = @id", new { id });
         }
 
         public void InsertBook(Books bookstoInsert)
         {
-            _conn.Execute("INSERT INTO books (TITLE, ID, GENRE, AUTHOR, CATEGORYID, DESCRIPTION, INSTOCK) VALUES (@title, @id, @genre, @author, @categoryid, @description, @instock);", new { Title = bookstoInsert.Title, author = bookstoInsert.Author, genre = bookstoInsert.Genre, id = bookstoInsert.Id, bookstoInsert.CategoryId, Description = bookstoInsert.Description, bookstoInsert.InStock });
+            _conn.Execute("INSERT INTO books (TITLE, ID, GENRE, AUTHOR, CATEGORYID, DESCRIPTION, INSTOCK) VALUES (@title, @id, @genre, @author, @categoryid, @description, @instock);", new { bookstoInsert.Title, author = bookstoInsert.Author, genre = bookstoInsert.Genre, id = bookstoInsert.Id, bookstoInsert.CategoryId, bookstoInsert.Description, bookstoInsert.InStock });
 
         }
         public void DeleteBook(Books books)
@@ -45,9 +45,9 @@ namespace BookClubWeb
 
         public void UpdateBook(Books books)
         {
-            _conn.Execute("UPDATE books SET Title = @title, author = @author, Genre = @Genre, InStock = @instock WHERE Id = @Id", new { title = books.Title, author = books.Author, Genre = books.Genre, books.Id, books.InStock });
+            _conn.Execute("UPDATE books SET Title = @title, author = @author, Genre = @Genre, InStock = @instock WHERE Id = @Id", new { title = books.Title, author = books.Author, books.Genre, books.Id, books.InStock });
         }
-      
-        
+
+
     }
 }

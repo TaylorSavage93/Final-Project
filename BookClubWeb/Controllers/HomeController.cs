@@ -1,8 +1,8 @@
-﻿using BookClubWeb.Models;
+﻿using LibraryInventoryWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace BookClubWeb.Controllers
+namespace LibraryInventoryWeb.Controllers
 {
     public class HomeController : Controller
     {

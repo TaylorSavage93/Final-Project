@@ -1,6 +1,6 @@
-﻿using BookClubWeb.Models;
+﻿using LibraryInventoryWeb.Models;
 
-namespace BookClubWeb
+namespace LibraryInventoryWeb
 {
     public interface IBooksRepository
     {
@@ -8,7 +8,7 @@ namespace BookClubWeb
         public Books GetBook(double id);
         public void UpdateBook(Books books);
         public void InsertBook(Books bookstoInsert);
-        public void DeleteBook(Books books);    
+        public void DeleteBook(Books books);
         public IEnumerable<Category> GetCategories();
         public Books AssignCategory();
 

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BookClubWeb.Models
+namespace LibraryInventoryWeb.Models
 {
     public class Books
     {
@@ -14,6 +14,6 @@ namespace BookClubWeb.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public IEnumerable<Category> Categories { get; set; }
-        
+
     }
 }

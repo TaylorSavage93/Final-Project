@@ -1,7 +1,8 @@
-﻿using BookClubWeb.Models;
+﻿using LibraryInventoryWeb;
+using LibraryInventoryWeb.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookClubWeb.Controllers
+namespace LibraryInventoryWeb.Controllers
 {
     public class BooksController : Controller
     {
@@ -18,7 +19,7 @@ namespace BookClubWeb.Controllers
 
             ViewData["CurrentFilter"] = SearchString;
             books = from b in repo.GetAllBooks() select b;
-            if (!String.IsNullOrEmpty(SearchString))
+            if (!string.IsNullOrEmpty(SearchString))
             {
                 books = books.Where(b => b.Title.Contains(SearchString));
             }
