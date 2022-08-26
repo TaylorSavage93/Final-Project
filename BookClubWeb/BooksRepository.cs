@@ -45,7 +45,7 @@ namespace BookClubWeb
 
         public void UpdateBook(Books books)
         {
-            _conn.Execute("UPDATE books SET Title = @title, author = @author, Genre = @Genre WHERE Id = @Id", new { title = books.Title, author = books.Author, Genre = books.Genre, books.Id });
+            _conn.Execute("UPDATE books SET Title = @title, author = @author, Genre = @Genre, InStock = @instock WHERE Id = @Id", new { title = books.Title, author = books.Author, Genre = books.Genre, books.Id, books.InStock });
         }
       
         

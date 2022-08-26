@@ -1,5 +1,6 @@
 html {
   font-size: 14px;
+  background-color: rosybrown;
 }
 
 @media (min-width: 768px) {
@@ -15,5 +16,17 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: white;
+  background-color: rosybrown;
+}
+a{
+    color:antiquewhite;
+}
+.btn-primary{
+    background-color:antiquewhite;
+    color:black;
+    border-color:black;
+}
+.form-control{
+    border-color:black;
+    margin-bottom: 5px;
 }
